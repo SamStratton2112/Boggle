@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="msg">The clock is ticking...Good luck!!!</h2>
+<section id="boggle">
+    <div id="score">
+        Score: {{score}}
+    </div>
+    <div id="countdown">
+    </div>
+
+    <table class ="board">
+        <tbody>
+            {% for row in board %}
+            <tr>
+                {% for cell in row %}
+                <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div id="form">
+        <form method="POST" class="add-word">
+            <input name="word" class="word">
+            <button id="submitBtn">Submit</button>
+            <button id="restartBtn" display="none">Restart</button>
+        </form>
+    </div>
+    <p id="msg">
+    </p>
+    <ul class="words-list">
+        {% for word in wordsList %}
+        <li>
+            {{word}}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}
